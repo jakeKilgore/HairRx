@@ -7,27 +7,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
-
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-
-@app.route('/testimonials')
-def testimonials():
-    return render_template('testimonials.html')
-
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
+    return render_template('base.html', title='Home')
 
 
 if __name__ == '__main__':
     app.debug = True
+    app.config['DEBUG'] = True
     server = Server(app.wsgi_app)
     server.watch('templates/*')
     server.watch('static/*')
-    server.serve()
+    server.serve(debug=True)
