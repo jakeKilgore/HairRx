@@ -16,4 +16,4 @@ if __name__ == '__main__':
     server = Server(app.wsgi_app)
     server.watch('templates/*')
     server.watch('static/*')
-    server.serve(debug=True)
+    server.serve(host='192.168.1.251', debug=True)
